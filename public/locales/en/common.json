@@ -1,0 +1,99 @@
+{
+  "app": {
+    "title": "UAE Tax Engine",
+    "subtitle": "Real-Time Tax Dashboard for SMEs & Freelancers"
+  },
+  "liveTaxMeter": {
+    "title": "Live Tax Meter",
+    "subtitle": "Real-time tax position",
+    "nearThreshold": "Near Threshold",
+    "adjustedProfit": "Adjusted Taxable Income",
+    "taxFree": "0% Tax-Free Bracket",
+    "taxable": "9% Taxable Bracket",
+    "corporateTax": "Corporate Tax",
+    "vat": "VAT Liability",
+    "total": "Total Tax",
+    "income": "Total Income",
+    "expenses": "Deductible Expenses",
+    "remaining": "Remaining Tax-Free Allowance"
+  },
+  "whatIf": {
+    "title": "What-If Tax Planner",
+    "subtitle": "Drag the slider to see tax impact",
+    "viewSuggestions": "AI Suggestions",
+    "projectedProfit": "Projected Year-End Profit",
+    "currentTax": "Current Tax",
+    "projectedTax": "Projected Tax",
+    "difference": "Difference",
+    "freeBracket": "Tax-Free (0%)",
+    "taxableBracket": "Taxable (9%)",
+    "effectiveRate": "Effective Tax Rate",
+    "aiSuggestions": "AI Tax Optimization Suggestions",
+    "generating": "Generating suggestions...",
+    "noSuggestions": "No suggestions available",
+    "potentialSaving": "Potential Saving",
+    "deadline": "Deadline"
+  },
+  "transactions": {
+    "title": "Transactions",
+    "add": "Add Transaction",
+    "import": "Import",
+    "filter": "Filter",
+    "all": "All",
+    "income": "Income",
+    "expense": "Expense",
+    "date": "Date",
+    "description": "Description",
+    "amount": "Amount",
+    "category": "Category",
+    "source": "Source",
+    "deductible": "Tax Deductible",
+    "confidence": "AI Confidence"
+  },
+  "categories": {
+    "revenue": "Revenue",
+    "cost_of_goods": "Cost of Goods",
+    "salary": "Salary & Wages",
+    "rent": "Rent",
+    "utilities": "Utilities",
+    "marketing": "Marketing",
+    "professional_fees": "Professional Fees",
+    "office_supplies": "Office Supplies",
+    "travel": "Travel",
+    "meals_entertainment": "Meals & Entertainment",
+    "vehicle": "Vehicle Expenses",
+    "insurance": "Insurance",
+    "software": "Software & Subscriptions",
+    "equipment": "Equipment",
+    "government_fees": "Government Fees",
+    "bank_charges": "Bank Charges",
+    "other": "Other"
+  },
+  "difficulty": {
+    "easy": "Easy",
+    "medium": "Medium",
+    "complex": "Complex"
+  },
+  "subscription": {
+    "free": "Free Plan",
+    "premium": "Premium Plan",
+    "upgrade": "Upgrade to Premium",
+    "features": {
+      "multiBankFeeds": "Multi-Bank Feeds",
+      "vatReturns": "VAT Returns",
+      "ctReturns": "CT Returns",
+      "ftaExport": "FTA emaraTax Export",
+      "aiOptimizations": "AI Tax Optimizations",
+      "prioritySupport": "Priority Support"
+    }
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  }
+}

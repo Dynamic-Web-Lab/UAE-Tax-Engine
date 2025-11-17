@@ -1,0 +1,99 @@
+{
+  "app": {
+    "title": "محرك الضرائب الإماراتي",
+    "subtitle": "لوحة معلومات ضريبية في الوقت الفعلي للشركات الصغيرة والمستقلين"
+  },
+  "liveTaxMeter": {
+    "title": "مقياس الضريبة المباشر",
+    "subtitle": "الوضع الضريبي في الوقت الفعلي",
+    "nearThreshold": "قريب من العتبة",
+    "adjustedProfit": "الدخل الخاضع للضريبة المعدل",
+    "taxFree": "شريحة معفاة من الضرائب 0%",
+    "taxable": "شريحة خاضعة للضريبة 9%",
+    "corporateTax": "ضريبة الشركات",
+    "vat": "التزام ضريبة القيمة المضافة",
+    "total": "إجمالي الضريبة",
+    "income": "إجمالي الدخل",
+    "expenses": "المصاريف القابلة للخصم",
+    "remaining": "البدل المتبقي المعفى من الضرائب"
+  },
+  "whatIf": {
+    "title": "مخطط الضرائب الافتراضي",
+    "subtitle": "اسحب المؤشر لرؤية التأثير الضريبي",
+    "viewSuggestions": "اقتراحات الذكاء الاصطناعي",
+    "projectedProfit": "الربح المتوقع لنهاية العام",
+    "currentTax": "الضريبة الحالية",
+    "projectedTax": "الضريبة المتوقعة",
+    "difference": "الفرق",
+    "freeBracket": "معفاة من الضرائب (0%)",
+    "taxableBracket": "خاضعة للضريبة (9%)",
+    "effectiveRate": "معدل الضريبة الفعلي",
+    "aiSuggestions": "اقتراحات تحسين ضريبي بالذكاء الاصطناعي",
+    "generating": "جارٍ إنشاء الاقتراحات...",
+    "noSuggestions": "لا توجد اقتراحات متاحة",
+    "potentialSaving": "التوفير المحتمل",
+    "deadline": "الموعد النهائي"
+  },
+  "transactions": {
+    "title": "المعاملات",
+    "add": "إضافة معاملة",
+    "import": "استيراد",
+    "filter": "تصفية",
+    "all": "الكل",
+    "income": "الدخل",
+    "expense": "المصروفات",
+    "date": "التاريخ",
+    "description": "الوصف",
+    "amount": "المبلغ",
+    "category": "الفئة",
+    "source": "المصدر",
+    "deductible": "قابل للخصم الضريبي",
+    "confidence": "ثقة الذكاء الاصطناعي"
+  },
+  "categories": {
+    "revenue": "الإيرادات",
+    "cost_of_goods": "تكلفة البضائع",
+    "salary": "الرواتب والأجور",
+    "rent": "الإيجار",
+    "utilities": "المرافق",
+    "marketing": "التسويق",
+    "professional_fees": "الرسوم المهنية",
+    "office_supplies": "مستلزمات المكتب",
+    "travel": "السفر",
+    "meals_entertainment": "الوجبات والترفيه",
+    "vehicle": "مصاريف المركبات",
+    "insurance": "التأمين",
+    "software": "البرمجيات والاشتراكات",
+    "equipment": "المعدات",
+    "government_fees": "الرسوم الحكومية",
+    "bank_charges": "رسوم البنك",
+    "other": "أخرى"
+  },
+  "difficulty": {
+    "easy": "سهل",
+    "medium": "متوسط",
+    "complex": "معقد"
+  },
+  "subscription": {
+    "free": "الخطة المجانية",
+    "premium": "الخطة المميزة",
+    "upgrade": "الترقية إلى المميز",
+    "features": {
+      "multiBankFeeds": "تغذيات متعددة البنوك",
+      "vatReturns": "إقرارات ضريبة القيمة المضافة",
+      "ctReturns": "إقرارات ضريبة الشركات",
+      "ftaExport": "تصدير FTA emaraTax",
+      "aiOptimizations": "تحسينات ضريبية بالذكاء الاصطناعي",
+      "prioritySupport": "دعم ذو أولوية"
+    }
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "loading": "جارٍ التحميل...",
+    "error": "خطأ",
+    "success": "نجاح"
+  }
+}
