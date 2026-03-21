@@ -5,7 +5,7 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { LiveTaxMeter } from '@/components/LiveTaxMeter';
@@ -35,6 +35,14 @@ export default function DashboardPage() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [suggestions, setSuggestions] = useState<TaxOptimizationSuggestion[]>([]);
   const [isLoadingSuggestions, setIsLoadingSuggestions] = useState(false);
+
+  const aiConfidence = useMemo(() => {
+    const classified = transactions.filter(t => t.autoClassified);
+    if (classified.length === 0) return 0;
+    return Math.round(
+      (classified.reduce((sum, t) => sum + t.confidence, 0) / classified.length) * 100
+    );
+  }, [transactions]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -237,8 +245,9 @@ export default function DashboardPage() {
             onAdd={() => router.push('/transactions/add')}
             onEdit={(txn) => router.push(`/transactions/edit/${txn.id}`)}
             onDelete={async (txnId) => {
-              // TODO: Implement delete
-              setTransactions(transactions.filter(t => t.id !== txnId));
+              if (!userId) return;
+              setTransactions(prev => prev.filter(t => t.id !== txnId));
+              await FirebaseDatabase.deleteTransaction(userId, txnId);
             }}
             isLoading={false}
           />
@@ -273,14 +282,7 @@ export default function DashboardPage() {
                 AI Classification
               </h3>
               <p className="text-3xl font-bold text-gray-900">
-                {transactions.filter(t => t.autoClassified).length > 0
-                  ? Math.round(
-                      (transactions.filter(t => t.autoClassified).reduce((sum, t) => sum + t.confidence, 0) /
-                        transactions.filter(t => t.autoClassified).length) *
-                        100
-                    )
-                  : 0}
-                %
+                {aiConfidence}%
               </p>
               <p className="text-sm text-gray-500 mt-1">
                 Target accuracy: 90%+

@@ -4,7 +4,7 @@
  */
 
 import { NextRequest } from 'next/server';
-import { cookies } from 'next/headers';
+import { getAdminAuth } from '@/lib/firebase/admin';
 
 export interface AuthenticatedUser {
   uid: string;
@@ -28,20 +28,11 @@ export async function getAuthenticatedUser(
 
     const idToken = authHeader.split('Bearer ')[1];
 
-    // TODO: Verify Firebase ID token using Firebase Admin SDK
-    // const admin = await import('firebase-admin');
-    // const decodedToken = await admin.auth().verifyIdToken(idToken);
-    //
-    // For now, return mock auth (replace with actual verification)
-    // return {
-    //   uid: decodedToken.uid,
-    //   email: decodedToken.email || null,
-    // };
+    const decodedToken = await getAdminAuth().verifyIdToken(idToken);
 
-    // Temporary: Allow through for development
     return {
-      uid: 'dev_user',
-      email: 'dev@example.com',
+      uid: decodedToken.uid,
+      email: decodedToken.email || null,
     };
   } catch (error) {
     console.error('Authentication error:', error);

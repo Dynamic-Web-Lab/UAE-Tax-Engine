@@ -5,7 +5,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo, useCallback, useEffect, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Transaction } from '@/types/tax';
 import { Pencil, Trash2, Plus, Filter, Download } from 'lucide-react';
@@ -19,7 +19,7 @@ interface TransactionListProps {
   isLoading?: boolean;
 }
 
-export function TransactionList({
+export const TransactionList = memo(function TransactionList({
   transactions,
   onAdd,
   onEdit,
@@ -29,16 +29,29 @@ export function TransactionList({
   const { t } = useTranslation();
   const [filter, setFilter] = useState<'all' | 'income' | 'expense'>('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('');
 
-  const filteredTransactions = transactions.filter((txn) => {
-    const matchesFilter = filter === 'all' || txn.type === filter;
-    const matchesSearch =
-      searchTerm === '' ||
-      txn.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      txn.category.toLowerCase().includes(searchTerm.toLowerCase());
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedSearch(searchTerm), 300);
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
 
-    return matchesFilter && matchesSearch;
-  });
+  const filteredTransactions = useMemo(
+    () =>
+      transactions.filter((txn) => {
+        const matchesFilter = filter === 'all' || txn.type === filter;
+        const matchesSearch =
+          debouncedSearch === '' ||
+          txn.description.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+          txn.category.toLowerCase().includes(debouncedSearch.toLowerCase());
+        return matchesFilter && matchesSearch;
+      }),
+    [transactions, filter, debouncedSearch]
+  );
+
+  const handleFilterAll = useCallback(() => setFilter('all'), []);
+  const handleFilterIncome = useCallback(() => setFilter('income'), []);
+  const handleFilterExpense = useCallback(() => setFilter('expense'), []);
 
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
@@ -101,7 +114,7 @@ export function TransactionList({
 
           <div className="flex gap-2">
             <button
-              onClick={() => setFilter('all')}
+              onClick={handleFilterAll}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 filter === 'all'
                   ? 'bg-primary-600 text-white'
@@ -111,7 +124,7 @@ export function TransactionList({
               {t('transactions.all', 'All')}
             </button>
             <button
-              onClick={() => setFilter('income')}
+              onClick={handleFilterIncome}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 filter === 'income'
                   ? 'bg-green-600 text-white'
@@ -121,7 +134,7 @@ export function TransactionList({
               {t('transactions.income', 'Income')}
             </button>
             <button
-              onClick={() => setFilter('expense')}
+              onClick={handleFilterExpense}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 filter === 'expense'
                   ? 'bg-red-600 text-white'
@@ -227,4 +240,4 @@ export function TransactionList({
       )}
     </div>
   );
-}
+});

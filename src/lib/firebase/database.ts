@@ -8,6 +8,7 @@ import {
   get,
   update,
   push,
+  remove,
   onValue,
   off,
   query,
@@ -122,6 +123,14 @@ export class FirebaseDatabase {
     });
 
     return transactions.reverse();
+  }
+
+  static async deleteTransaction(
+    userId: string,
+    transactionId: string
+  ): Promise<void> {
+    await remove(ref(database, `transactions/${userId}/${transactionId}`));
+    await this.updateLiveMetrics(userId);
   }
 
   static async updateTransaction(
