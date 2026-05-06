@@ -7,6 +7,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import '../lib/i18n/config';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { LayoutClient } from '@/components/LayoutClient';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -50,7 +51,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <ErrorBoundary>
-          {children}
+          <LayoutClient>{children}</LayoutClient>
         </ErrorBoundary>
       </body>
     </html>
